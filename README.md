@@ -19,17 +19,6 @@ Este é um sistema simples para registrar a entrada e saída de máquinas em um 
 4. Assine no campo de assinatura digital
 5. Clique no botão "Gerar PDF" para criar e baixar o relatório
 
-## Hospedagem no GitHub Pages
-
-Para hospedar este site no GitHub Pages, siga os passos abaixo:
-
-1. Crie um repositório no GitHub
-2. Faça upload de todos os arquivos deste projeto para o repositório
-3. Vá para as configurações do repositório (Settings)
-4. Na seção "GitHub Pages", selecione a branch principal (main ou master) como fonte
-5. Clique em "Save"
-6. Aguarde alguns minutos e seu site estará disponível no URL: `https://[seu-usuario].github.io/[nome-do-repositorio]`
-
 ## Tecnologias utilizadas
 
 - HTML5
