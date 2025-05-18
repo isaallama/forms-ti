@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model FormEntry {
+  id            String    @id @default(cuid())
+  responsibleName String
+  date          DateTime
+  description   String
+  location      String
+  contactPhone  String
+  signatureData String    @db.Text
+  assets        Asset[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Asset {
+  id          String    @id @default(cuid())
+  name        String
+  formEntry   FormEntry @relation(fields: [formEntryId], references: [id], onDelete: Cascade)
+  formEntryId String
+}

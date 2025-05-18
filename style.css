@@ -1,0 +1,267 @@
+:root {
+  --primary-color: #1a73e8;
+  --primary-hover: #1557b0;
+  --background-color: #f5f5f5;
+  --card-color: #ffffff;
+  --border-color: #dadce0;
+  --text-color: #202124;
+  --error-color: #d93025;
+  --success-color: #188038;
+  --shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Estilos do Formulário */
+form {
+  background-color: var(--card-color);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border 0.3s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* Estilos para a lista de patrimônios */
+.patrimonio-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 16px; /* Aumentei o padding aqui */
+  border-bottom: 1px solid #e0e0e0;
+  align-items: start;
+}
+
+.patrimonio-item:last-child {
+  border-bottom: none; 
+}
+
+.add-btn,
+.remove-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  height: 42px; /* Mesma altura que os inputs */
+}
+
+.add-btn {
+  background-color: var(--primary-color);
+  color: white;
+  margin-top: 0.5rem;
+}
+
+.add-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.remove-btn {
+  background-color: #f1f3f4;
+  color: var(--text-color);
+}
+
+.remove-btn:hover:not([disabled]) {
+  background-color: #e8eaed;
+}
+
+.remove-btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Estilos para o campo de assinatura */
+.signature-container {
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+#signature-pad {
+  width: 100%;
+  height: 200px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+#clear-signature {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+/* Estilos para os botões de ação */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.primary-btn {
+  background-color: var(--primary-color);
+  color: white;
+  flex: 1;
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.secondary-btn {
+  background-color: #f1f3f4;
+  color: var(--text-color);
+}
+
+.secondary-btn:hover {
+  background-color: #e8eaed;
+}
+
+/* Estilos para o rodapé */
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: #5f6368;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    margin: 1rem auto;
+  }
+
+  form {
+    padding: 1.5rem;
+  }
+
+  .patrimonio-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  input,
+  select,
+  .add-btn,
+  .remove-btn {
+    font-size: 16px;
+    height: 44px;
+  }
+
+  select {
+    padding: 0.75rem;
+  }
+}
+
+/* Ajustes específicos para iPhone */
+@media screen and (max-width: 390px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  form {
+    padding: 1rem;
+  }
+
+  .patrimonio-item {
+    margin-bottom: 1rem;
+  }
+
+  input,
+  select,
+  button {
+    min-height: 44px;
+  }
+}

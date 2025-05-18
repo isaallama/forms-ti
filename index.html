@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Protocolo de Entrega</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Biblioteca para assinatura digital -->
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.5/dist/signature_pad.umd.min.js"></script>
+    <!-- Bibliotecas para geração de PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>PROTOCOLO DE ENTREGA</h1>
+      </header>
+
+      <main>
+        <form id="registroForm">
+          <div class="form-group">
+            <label for="responsavel">Nome:</label>
+            <input type="text" id="responsavel" name="responsavel" required />
+          </div>
+
+          <div class="form-group">
+            <label for="identificador">Matrícula/CPF:</label>
+            <input type="text" id="identificador" name="identificador" required />
+          </div>
+
+          <div class="form-group">
+            <label for="telefone">Telefone de Contato:</label>
+            <input
+              type="tel"
+              id="telefone"
+              name="telefone"
+              placeholder="(00) 00000-0000"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Lista de Patrimônios:</label>
+            <div id="patrimonios-container">
+              <div class="patrimonio-item">
+                <input
+                  type="text"
+                  class="patrimonio-input"
+                  placeholder="Número de patrimônio"
+                  required
+                />
+                <select class="equipamento-select" required>
+                  <option value="">Selecione o equipamento</option>
+                  <option value="PC">PC</option>
+                  <option value="Notebook">Notebook</option>
+                  <option value="Monitor">Monitor</option>
+                </select>
+                <button type="button" class="remove-btn" disabled>
+                  Remover
+                </button>
+              </div>
+            </div>
+            <button type="button" id="add-patrimonio" class="add-btn">
+              Adicionar novo Patrimônio
+            </button>
+          </div>
+
+          <div class="form-group">
+            <label for="assinatura">Assinatura Digital:</label>
+            <div class="signature-container">
+              <canvas id="signature-pad"></canvas>
+              <button type="button" id="clear-signature">
+                Limpar Assinatura
+              </button>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" id="gerar-pdf" class="primary-btn">
+              Gerar PDF
+            </button>
+            <button type="reset" class="secondary-btn">
+              Limpar Formulário
+            </button>
+          </div>
+        </form>
+      </main>
+
+      <footer>
+        <p>&copy; 2025 Protocolo de Entrega</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
